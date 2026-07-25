@@ -1,0 +1,270 @@
+.container{
+
+    padding:30px;
+
+}
+
+
+.header{
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+}
+
+
+h1{
+
+    color:#333;
+
+}
+
+
+
+.btn-primary{
+
+    background:#2563eb;
+
+    color:white;
+
+    border:none;
+
+    padding:12px 20px;
+
+    border-radius:8px;
+
+    cursor:pointer;
+
+}
+
+
+
+.btn-primary:hover{
+
+    background:#1d4ed8;
+
+}
+
+
+
+.filters {
+
+    margin: 30px 0;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+
+    background: #f8fafc;
+
+    padding: 20px;
+
+    border-radius: 10px;
+
+    border: 1px solid #e2e8f0;
+
+}
+
+
+.filters label {
+
+    font-weight: 600;
+
+    color: #334155;
+
+}
+
+
+select {
+
+    padding: 12px;
+
+    border-radius: 8px;
+
+    border: 1px solid #cbd5e1;
+
+    background: white;
+
+    font-size: 14px;
+
+    cursor: pointer;
+
+}
+
+
+
+table{
+
+    width:100%;
+
+    border-collapse:collapse;
+
+    background:white;
+
+}
+
+
+
+th{
+
+    background:#f1f5f9;
+
+    padding:12px;
+
+    text-align:left;
+
+}
+
+
+
+td{
+
+    padding:12px;
+
+    border-bottom:1px solid #ddd;
+
+}
+
+
+
+tr:hover{
+
+    background:#f8fafc;
+
+}
+
+.btn-search {
+
+    background: #16a34a;
+
+    color: white;
+
+    border: none;
+
+    padding: 12px 25px;
+
+    border-radius: 8px;
+
+    font-size: 15px;
+
+    font-weight: 500;
+
+    cursor: pointer;
+
+    transition: all 0.3s ease;
+
+}
+
+
+.btn-search:hover {
+
+    background: #15803d;
+
+    transform: translateY(-1px);
+
+}
+
+
+.btn-search:active {
+
+    transform: translateY(0);
+
+}
+
+.btn-secondary{
+
+    background:#64748b;
+
+    color:white;
+
+    border:none;
+
+    padding:12px 20px;
+
+    border-radius:8px;
+
+    cursor:pointer;
+
+}
+
+.btn-secondary:hover{
+
+    background:#475569;
+
+}
+
+.btn-edit{
+
+    background:#f59e0b;
+
+    color:white;
+
+    border:none;
+
+    padding:8px 15px;
+
+    border-radius:6px;
+
+    cursor:pointer;
+
+    font-size:14px;
+
+    transition:.3s;
+
+}
+
+.btn-edit:hover{
+
+    background:#d97706;
+
+}
+
+/* Campos dinámicos de búsqueda */
+.filters input[type="text"],
+.filters input[type="date"] {
+
+    height: 40px;
+
+    padding: 8px 12px;
+
+    border: 1px solid #cbd5e1;
+
+    border-radius: 8px;
+
+    font-size: 14px;
+
+    color: #334155;
+
+    background-color: white;
+
+    width: 220px;
+
+    transition: all 0.2s ease;
+
+}
+
+
+/* Efecto cuando seleccionas el campo */
+
+.filters input[type="text"]:focus,
+.filters input[type="date"]:focus {
+
+    outline: none;
+
+    border-color: #2563eb;
+
+    box-shadow: 0 0 0 3px rgba(37,99,235,.15);
+
+}
+
+
+/* Placeholder del campo tipo */
+
+.filters input::placeholder {
+
+    color: #94a3b8;
+
+}

@@ -1,0 +1,248 @@
+<div class="container">
+
+
+    <div class="header">
+
+    <h1>
+        Gestión de Materiales
+    </h1>
+
+</div>
+
+
+<div class="filters">
+
+
+    <label>
+        Buscar:
+    </label>
+
+
+    <select 
+    [(ngModel)]="criterioBusqueda"
+    name="criterio">
+
+    <option value="">
+    Seleccione criterio
+    </option>
+
+    <option value="TODOS">
+    Todos
+    </option>
+
+    <option value="TIPO">
+    Por tipo
+    </option>
+
+    <option value="CIUDAD">
+    Por ciudad
+    </option>
+
+    <option value="FECHA">
+    Por fecha de compra
+    </option>
+
+    </select>
+
+    <!-- Buscar por tipo -->
+    <input
+        *ngIf="criterioBusqueda === 'TIPO'"
+        type="text"
+        placeholder="Ingrese tipo"
+        name="tipoBusqueda"
+        [(ngModel)]="tipoBusqueda">
+
+
+    <!-- Buscar por ciudad -->
+    <select
+        *ngIf="criterioBusqueda === 'CIUDAD'"
+        name="ciudadBusqueda"
+        [(ngModel)]="ciudadBusqueda">
+
+
+        <option [ngValue]="null">
+            Seleccione ciudad
+        </option>
+
+        <option [ngValue]="1">
+            Medellín
+        </option>
+
+        <option [ngValue]="2">
+            Cartagena
+        </option>
+
+        <option [ngValue]="3">
+            Bogotá
+        </option>
+
+        <option [ngValue]="4">
+            Cali
+        </option>
+
+        <option [ngValue]="5">
+            Arjona
+        </option>
+
+        <option [ngValue]="6">
+            Turbaco
+        </option>
+
+        <option [ngValue]="7">
+            Sabaneta
+        </option>
+
+
+    </select>
+
+
+    <!-- Buscar por fecha -->
+    <input
+    *ngIf="criterioBusqueda === 'FECHA'"
+    type="date"
+    name="fechaCompraBusqueda"
+    [(ngModel)]="fechaCompraBusqueda">
+
+
+    <button 
+    class="btn-search"
+    (click)="buscar()">
+
+        Buscar
+
+    </button>
+
+
+
+    <button 
+    class="btn-primary"
+    (click)="abrirModal()">
+
+    + Nuevo Material
+
+    </button>
+
+
+    <button
+    class="btn-secondary"
+    (click)="limpiar()">
+
+    Limpiar
+
+    </button>
+
+
+    </div>
+
+
+    <div 
+    class="empty-message"
+    *ngIf="!mostrarTabla">
+
+    Seleccione un criterio de búsqueda
+    para consultar materiales.
+
+    </div>
+    <table *ngIf="mostrarTabla">
+
+
+        <thead>
+
+            <tr>
+
+                <th>
+                    Nombre
+                </th>
+
+                <th>
+                    Descripcion
+                </th>
+
+                <th>
+                    Tipo
+                </th>
+
+                <th>
+                    Precio
+                </th>
+
+                <th>
+                    Ciudad
+                </th>
+
+                <th>
+                    Estado
+                </th>
+
+                <th>
+                    Acciones
+                </th>
+
+            </tr>
+
+
+        </thead>
+
+
+        <tbody>
+
+
+            <tr *ngFor="let material of materiales">
+
+
+                <td>
+                    {{material.nombre}}
+                </td>
+
+                 <td>
+                    {{material.descripcion}}
+                </td>
+
+                <td>
+                    {{material.tipo}}
+                </td>
+
+
+                <td>
+                    {{material.precio | currency}}
+                </td>
+
+
+                <td>
+                    {{material.ciudad}}
+                </td>
+
+
+                <td>
+                    {{material.estado}}
+                </td>
+
+                <td>
+
+                    <button
+                        class="btn-edit"
+                        (click)="editar(material)">
+
+                        ✏️ Editar
+
+                    </button>
+
+                </td>
+
+
+            </tr>
+
+
+        </tbody>
+
+
+    </table>
+
+
+</div>
+
+<app-formulario-material
+    *ngIf="mostrarModal"
+    [materialEditar]="materialEditar"
+    (cerrar)="cerrarModal(true)">
+</app-formulario-material>
