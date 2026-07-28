@@ -41,7 +41,7 @@ export class GestionMaterialesComponent implements OnInit {
   buscar(){
 
     this.limpiarResultados();
-    
+
     if(!this.criterioBusqueda){
 
       this.materiales = [];
@@ -228,17 +228,24 @@ cerrarModal(actualizarTabla:boolean = false){
 
 }
 
-limpiarResultados(){
+  limpiarResultados(){
 
-  this.materiales = [];
-  this.mostrarTabla = false;
+    this.materiales = [];
+    this.mostrarTabla = false;
 
-}
+  }
 
 
 
   ngOnInit():void{
   }
 
+  cerrarSesion(){
+
+    localStorage.removeItem('token');
+
+    window.location.href = '/login';
+
+  }
 
 }

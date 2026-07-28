@@ -268,3 +268,28 @@ tr:hover{
     color: #94a3b8;
 
 }
+
+.btn-logout{
+
+    background:#dc2626;
+
+    color:white;
+
+    border:none;
+
+    padding:10px 18px;
+
+    border-radius:8px;
+
+    cursor:pointer;
+
+    font-weight:600;
+
+}
+
+
+.btn-logout:hover{
+
+    background:#b91c1c;
+
+}

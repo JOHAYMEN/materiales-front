@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { AuthService } from '../services/auth.service';
 import { LoginRequest } from '../models/login-request.model';
+import { Router } from '@angular/router';
+import Swal from 'sweetalert2';
 
 
 @Component({
@@ -23,30 +25,62 @@ export class LoginComponent {
 
 
   constructor(
-    private authService: AuthService
+    private authService: AuthService,
+    private router: Router
   ){}
 
 
 
   login(){
 
-    this.authService.login(this.loginData)
-      .subscribe({
+   this.authService.login(this.loginData)
+    .subscribe({
 
-        next:(response)=>{
+    next:(response)=>{
 
-          console.log('Login exitoso', response);
+    localStorage.setItem(
+      'token',
+      response.token
+    );
 
-        },
+    console.log('Token guardado');
 
-        error:(error)=>{
+    Swal.fire({
 
-          console.error('Error en login', error);
+      icon:'success',
 
-        }
+      title:'Bienvenido',
 
-      });
+      text:'Inicio de sesión exitoso.',
+
+      timer:1500,
+
+      showConfirmButton:false
+
+    });
+
+    this.router.navigate(['/materiales']);
+
+  },
+
+  error:()=>{
+
+
+    Swal.fire({
+
+      icon:'error',
+
+      title:'Error de autenticación',
+
+      text:'Usuario o contraseña incorrectos.',
+
+      confirmButtonColor:'#dc2626'
+
+    });
+
 
   }
 
+  });
+  }
 }
